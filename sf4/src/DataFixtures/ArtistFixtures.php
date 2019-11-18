@@ -7,8 +7,6 @@ class ArtistFixtures extends BaseFixtures
 {
     protected function loadData(ObjectManager $manager)
     {
-        #$artist = $this->getRandomReference('artist');
-        
         // La fonction anonyme sera exécutée 50 fois
         $this->createMany(50, 'artist' ,function ($num) {
             // Construction du nom d'artiste

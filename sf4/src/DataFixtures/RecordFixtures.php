@@ -18,14 +18,12 @@ class RecordFixtures extends BaseFixtures implements DependentFixtureInterface
     }
 
     protected function loadData(ObjectManager $manager)
-    {
-        // $artist = $this->getRandomReference('record');
-        
+    {          
         $this->createMany(200, 'record', function($num) 
         {
             $record = (new Record())
-                ->setReleasedAt($this->faker->dateTime($max = 'now', $timezone = null))
-                ->setTitle($this->faker->title)
+                ->setReleasedAt($this->faker->dateTimeBetween('-1 year'))
+                ->setTitle($this->faker->sentence)
                 ->setArtist($this->getRandomReference('artist'))
                 ->setDescription($this->faker->realText(50))
                 // ->setLabel($this->getRandomReference('label'))
