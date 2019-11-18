@@ -1,0 +1,41 @@
+{% extends '_template.html.twig' %}
+
+{% block title %}
+
+  {{record.title}}
+
+{% endblock %}
+
+{% block content %}
+
+ <div class="box">
+        <article class="media">
+            <div class="media-left">
+                <figure class="image is-128x128">
+                    <img src="https://loremflickr.com/256/256/album,music/all?lock={{ record.id }}" alt="Image">
+                </figure>
+            </div>
+            <div class="media-content">
+                <div class="content">
+                    <p>
+                        <a href="#" class="has-text-primary">
+                            <strong>{{ record.title }}</strong>
+                        </a>
+                        <small>{{ record.releasedAt|date('d/m/Y')}}</small>
+                        <br>
+                        <small>
+                            <strong>Artiste:</strong>
+                            <a href="#">{{ record.artist.name }}</a>
+                        </small><br>
+                        <small>
+                            <strong>Label:</strong>
+                            <a href="#">{{ record.label.name }}</a>
+                        </small><br>
+                        {{ record.description }}
+                    </p>
+                </div>
+            </div>
+        </article>
+    </div>
+
+{% endblock %}

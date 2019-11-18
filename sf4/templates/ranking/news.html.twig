@@ -1,28 +1,29 @@
 {% extends '_template.html.twig' %}
 {% block content %}
+<h2>Nouveautés</h2>
     {% for result in results %}
     <div class="box">
         <article class="media">
             <div class="media-left">
                 <figure class="image is-128x128">
-                    <img src="https://loremflickr.com/256/256/album,music/all?lock=ID" alt="Image">
+                    <img src="https://loremflickr.com/256/256/album,music/all?lock={{ result.id }}" alt="Image">
                 </figure>
             </div>
             <div class="media-content">
                 <div class="content">
                     <p>
-                        <a href="#" class="has-text-primary">
+                        <a href="{{ path('record_show', {id: result.id}) }}" class="has-text-primary">
                             <strong>{{ result.title }}</strong>
                         </a>
-                        <small>{{ result.releasedAt|date('Y-m-d')}}</small>
+                        <small>{{ result.releasedAt|date('d/m/Y')}}</small>
                         <br>
                         <small>
                             <strong>Artiste:</strong>
-                            <a href="#">{{ result.artist.name }}</a>
+                            <a href="{{ path('artist_show', {id: result.artist.id}) }}">{{ result.artist.name }}</a>
                         </small><br>
                         <small>
                             <strong>Label:</strong>
-                            <a href="#">{{ result.artist.name }}</a>
+                            <a href="{{ path('label_show', {id: result.label.id}) }}">{{ result.label.name }}</a>
                         </small><br>
                         {{ result.description }}
                     </p>

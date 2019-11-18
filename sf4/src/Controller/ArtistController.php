@@ -16,10 +16,20 @@ class ArtistController extends AbstractController
      */
     public function artistList(ArtistRepository $artistRepo)
     {
-        $results = $artistRepo->findDj();
+        $results = $artistRepo->findAll();
 
         return $this->render('artist/list.html.twig',  [
-            'res' => $results
+            'artists' => $results
+        ]);
+    }
+
+    /**
+     * @Route("/artist/{id}", name="artist_show")
+     */
+    public function artistShow(Artist $artist)
+    {        
+        return $this->render('artist/show.html.twig', [
+            'artist'=>$artist
         ]);
     }
 }

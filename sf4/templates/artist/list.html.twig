@@ -1,6 +1,31 @@
 {% extends '_template.html.twig' %}
 {% block content %}
-
-{# {{dump(res)}} #}
-
+    <div class="section">
+        <h1 class="title"></h1>
+        <div class="section columns is-multiline">
+            {% for artist in artists %}
+            <div class="box">
+                <article class="media-content">
+                    <div class="content">
+                        <figure class="image is-128x128">
+                            <img src="https://loremflickr.com/256/256/album,music/all?lock={{ artist.id }}" alt="Image">
+                        </figure>
+                    </div>
+                    <div class="media-content">
+                        <div class="content">
+                            <p>
+                                <a href="#" class="has-text-primary">
+                                <small>
+                                    <strong>Artiste:</strong>
+                                    <a href="#">{{ artist.name }}</a>
+                                </small><br>
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
 {% endblock %}

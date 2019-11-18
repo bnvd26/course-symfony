@@ -13,7 +13,7 @@ class RankingController extends AbstractController
      */
     public function news(RankingRepository $rankingRepo)
     {
-        $data = $rankingRepo->findAll();
+        $data = $rankingRepo->findUnderOneMonth();
         return $this->render('ranking/news.html.twig', [
             'results' => $data
         ]);

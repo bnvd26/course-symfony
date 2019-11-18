@@ -28,4 +28,6 @@ class ArtistRepository extends ServiceEntityRepository
             ->getResult()
         ;
     }
+
+    
 }

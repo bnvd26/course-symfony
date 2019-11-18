@@ -42,12 +42,6 @@ class Record
      */
     private $label;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Label", inversedBy="name")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    // private $label;
-
     public function getId(): ?int
     {
         return $this->id;
@@ -112,16 +106,4 @@ class Record
 
         return $this;
     }
-
-    // public function getLabel(): ?Label
-    // {
-    //     return $this->label;
-    // }
-
-    // public function setLabel(?Label $label): self
-    // {
-    //     $this->label = $label;
-
-    //     return $this;
-    // }
 }

@@ -19,6 +19,17 @@ class RankingRepository extends ServiceEntityRepository
         parent::__construct($registry, Record::class);
     }
 
+    public function findUnderOneMonth() 
+    {
+        return $this->createQueryBuilder('r')
+            ->where('r.releasedAt >= :month')
+            ->setParameter(':month', new \DateTime('-1 month'))
+            ->orderBy('r.releasedAt', 'DESC')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
     // /**
     //  * @return Record[] Returns an array of Record objects
     //  */
