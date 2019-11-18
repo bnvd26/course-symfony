@@ -24,7 +24,7 @@ class Record
     /**
      * @ORM\Column(type="text")
      */
-    private $descitption;
+    private $descritption;
 
     /**
      * @ORM\Column(type="datetime")
@@ -36,6 +36,12 @@ class Record
      * @ORM\JoinColumn(nullable=false)
      */
     private $artist;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Label", inversedBy="name")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $label;
 
     public function getId(): ?int
     {
@@ -54,14 +60,14 @@ class Record
         return $this;
     }
 
-    public function getDescitption(): ?string
+    public function getDescritption(): ?string
     {
-        return $this->descitption;
+        return $this->descritption;
     }
 
-    public function setDescitption(string $descitption): self
+    public function setDescritption(string $descritption): self
     {
-        $this->descitption = $descitption;
+        $this->descritption = $descritption;
 
         return $this;
     }
@@ -86,6 +92,18 @@ class Record
     public function setArtist(?Artist $artist): self
     {
         $this->artist = $artist;
+
+        return $this;
+    }
+
+    public function getLabel(): ?Label
+    {
+        return $this->label;
+    }
+
+    public function setLabel(?Label $label): self
+    {
+        $this->label = $label;
 
         return $this;
     }
