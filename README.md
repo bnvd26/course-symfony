@@ -1,2 +1,2 @@
 # course-symfony
-Symfony course
+Symfony course learned at HETIC
